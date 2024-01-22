@@ -7,17 +7,19 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import androidx.navigation.navigation
 import com.example.firstappplayground.presentation.FirstPage
 import com.example.firstappplayground.presentation.SecondPage
+import com.example.firstappplayground.presentation.scaffoldGround.ScaffoldPage
 
 @Composable
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController,
-    startDestination: String = NavigationItem.Main.route,
+    startDestination: String = NavigationItem.Master.route,
 ) {
     NavHost(navController = navController, startDestination = startDestination) {
-        composable(NavigationItem.Main.route) { FirstPage(navController) }
+        composable(NavigationItem.Master.route) { FirstPage(navController) }
         composable(
             route = NavigationItem.Detail.route + "/{name}/{email}",
             arguments = listOf(
@@ -36,5 +38,6 @@ fun AppNavHost(
                 email = it.arguments?.getString("email") ?: "tes@res.tes"
             )
         }
+        composable(NavigationItem.Main.route) { ScaffoldPage() }
     }
 }

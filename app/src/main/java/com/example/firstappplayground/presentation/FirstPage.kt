@@ -43,6 +43,11 @@ fun FirstPage(
             }) {
                 Text(text = "navigate to second page")
             }
+            Button(onClick = {
+                navController.navigate(NavigationItem.Main.route)
+            }) {
+                Text(text = "navigate to main page")
+            }
         }
     )
 }

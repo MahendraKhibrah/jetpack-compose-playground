@@ -37,7 +37,7 @@ class DataModule {
         ): Retrofit =
         Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create(gson))
-            .baseUrl("https://api.api-ninjas.com/v1")
+            .baseUrl("https://api.api-ninjas.com/v1/")
             .client(client)
             .build()
 
